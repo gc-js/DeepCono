@@ -1,0 +1,1 @@
+wget -O ./MLM_lora/model/mlm_conoserver_lora_esm2_t30_150M_UR50D/adapter_model.safetensors "https://zenodo.org/records/21311120/files/adapter_model.safetensors?download=1"
