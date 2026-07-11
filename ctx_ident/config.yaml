@@ -1,0 +1,33 @@
+file_format: "pdb" # cif or pdb
+model_checkpoint: "facebook/esm2_t30_150M_UR50D" # esm2 model checkpoint
+adapter: "./MLM_lora/model/mlm_conoserver_lora_esm2_t30_150M_UR50D" # MLM_lora model checkpoint
+
+# training
+train_path: "ctx_ident/data/train_data/train_fold4.csv"
+val_path: "ctx_ident/data/train_data/test_fold4.csv"
+pdb_path: "ctx_ident/data/train_data/structure"
+unlabel_path: "ctx_ident/data/train_data/unlabel_data.csv"
+
+device: "cuda:1"
+epochs: 300
+batch_size: 256
+unlabeled_batch_size: 64
+learning_rate: 0.01
+d_model: 640
+nhead: 1
+num_encoder_layers: 1
+dim_feedforward: 2048
+dropout: 0.1
+ema_alpha: 0.999
+clip_loss_weight: 1
+weight_decay: 1e-4
+consistency: 0.1
+consistency_rampup: 1000
+max_len: 50
+
+# pre
+test_path: "ctx_ident/data/test_data/conopeptide.csv"
+test_pdb_path: "ctx_ident/data/test_data/structure"
+best_model: "ctx_ident/model/ctx_ident_best_model.pth"
+# best_model: "/home/ubuntu/work/gecheng/Study/Deepcono/semi/ctx_ident_best_model.pth"
+output: "ctx_ident/output.csv"

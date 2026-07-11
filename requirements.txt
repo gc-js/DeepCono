@@ -1,0 +1,10 @@
+torch
+pandas
+numpy
+scikit-learn
+early_stopping_pytorch
+transformers
+peft
+pytorch-crf
+matplotlib
+accelerate
