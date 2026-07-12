@@ -109,13 +109,8 @@ python ctx_subtype/subtype_pred.py -i ./ctx_subtype/test/ctxs.txt -is X -ip '<hi
 - `-i`: conotoxins to be predicted.
 
 - `-is`: Subtype: X if needs to be predicted.
-    optional: `<AChBP>`, `<Ca12>`, `<Ca13>`, `<Ca22>`, `<Ca23>`, `<GABA>`, `<GluN2A>`, `<GluN2B>`, `<GluN2C>`, `<GluN2D>`,   
-`<GluN3A>`, `<K11>`, `<K12>`, `<K13>`, `<K16>`, `<K17>`, `<Kshaker>`, `<Na11>`, `<Na12>`, `<Na13>`, `<Na14>`, `<Na15>`,   
-`<Na16>`, `<Na17>`, `<Na18>`, `<NaTTXR>`, `<NaTTXS>`, `<NavBh>`, `<NET>`, `<α1AAR>`, `<α1BAR>`, `<α1β1γ>`, `<α1β1γδ>`,  
-`<α1β1δ>`, `<α1β1δε>`, `<α1β1ε>`, `<α2β2>`, `<α2β4>`, `<α3β2>`, `<α3β4>`, `<α4β2>`, `<α4β4>`, `<α6α3β2>`, `<α6α3β2β3>`,  
-`<α6α3β4>`, `<α6α3β4β3>`, `<α6β3β4>`, `<α6β4>`, `<α7>`, `<α7α6β2>`, `<α75HT3>`, `<α9>`, `<α9α10>`
+optional: `<AChBP>`, `<Ca12>`, `<Ca13>`, `<Ca22>`, `<Ca23>`, `<GABA>`, `<GluN2A>`, `<GluN2B>`, `<GluN2C>`, `<GluN2D>`, `<GluN3A>`, `<K11>`, `<K12>`, `<K13>`, `<K16>`, `<K17>`, `<Kshaker>`, `<Na11>`, `<Na12>`, `<Na13>`, `<Na14>`, `<Na15>`, `<Na16>`, `<Na17>`, `<Na18>`, `<NaTTXR>`, `<NaTTXS>`, `<NavBh>`, `<NET>`, `<α1AAR>`, `<α1BAR>`, `<α1β1γ>`, `<α1β1γδ>`, `<α1β1δ>`, `<α1β1δε>`, `<α1β1ε>`, `<α2β2>`, `<α2β4>`, `<α3β2>`, `<α3β4>`, `<α4β2>`, `<α4β4>`, `<α6α3β2>`, `<α6α3β2β3>`, `<α6α3β4>`, `<α6α3β4β3>`, `<α6β3β4>`, `<α6β4>`, `<α7>`, `<α7α6β2>`, `<α75HT3>`, `<α9>`, `<α9α10>`
 - `-ip`: Potency: X if needs to be predicted.
-    optional: `<high>`, `<low>`
-
+optional: `<high>`, `<low>`
 - `-m`: model parameters trained at different stages of data augmentation.
 - `-o`: output file (.csv)
