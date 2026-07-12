@@ -1,5 +1,5 @@
 file_format: 'pdb' # cif or pdb
-model_checkpoint: "facebook/esm2_t6_8M_UR50D" # esm2 model checkpoint
+model_checkpoint: "./esm2_base_model/esm2_t6_8M_UR50D" # esm2 model checkpoint
 adapter: "./MLM_lora/model/mlm_conoserver_lora_esm2_t6_8M_UR50D" # MLM_lora model checkpoint
 
 # training

@@ -30,10 +30,10 @@ batch_size = 64
 num_train_epochs = 1000
 best_eval_loss = 1.5
 
-model_output = "./mlm_conoserver_lora"
-img_output = "./loss_curves.png"
-checkpoint = "facebook/esm2_t30_150M_UR50D"
-seq_path = "./conoserver_data.csv"
+checkpoint = "./esm2_base_model/esm2_t30_150M_UR50D"
+seq_path = "MLM_lora/conoserver_data.csv"
+model_output = "MLM_lora/model/mlm_conoserver_lora_esm2_t30_150M_UR50D"
+img_output = "MLM_lora/loss_curves.png"
 
 df = pd.read_csv(seq_path)
 sequences = df["Seq"].tolist()

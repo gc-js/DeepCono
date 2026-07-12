@@ -1,5 +1,5 @@
 file_format: "pdb" # cif or pdb
-model_checkpoint: "facebook/esm2_t30_150M_UR50D" # esm2 model checkpoint
+model_checkpoint: "./esm2_base_model/esm2_t30_150M_UR50D" # esm2 model checkpoint
 adapter: "./MLM_lora/model/mlm_conoserver_lora_esm2_t30_150M_UR50D" # MLM_lora model checkpoint
 
 # training
@@ -29,5 +29,4 @@ max_len: 50
 test_path: "ctx_ident/data/test_data/conopeptide.csv"
 test_pdb_path: "ctx_ident/data/test_data/structure"
 best_model: "ctx_ident/model/ctx_ident_best_model.pth"
-# best_model: "/home/ubuntu/work/gecheng/Study/Deepcono/semi/ctx_ident_best_model.pth"
 output: "ctx_ident/output.csv"

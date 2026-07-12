@@ -1,4 +1,4 @@
-base_model_path: "facebook/esm2_t30_150M_UR50D" # esm2
+base_model_path: "./esm2_base_model/esm2_t30_150M_UR50D" # esm2
 adapter: "./MLM_lora/model/mlm_conoserver_lora_esm2_t30_150M_UR50D" # MLM_lora model checkpoint
 
 # training
@@ -19,7 +19,7 @@ max_len: 200 # max length of seq
 evalue: 0.001
 input_path: "conopep_ident/query_data/"
 save_path: "conopep_ident/output/"
-best_model_path: "conopep_ident/model/model1_fold_2.pth"
+best_model_path: "conopep_ident/model/conopep_ident_best_model.pth"
 superfamily_db: "conopep_ident/DB/superfamily/superfamily"  # superfamily hmm
 family_db: "conopep_ident/DB/family/familys" # family hmm
 
