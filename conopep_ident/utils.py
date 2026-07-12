@@ -344,7 +344,6 @@ def filter_sequences(sequences, confidences, min_len_peptide):
     
     first_non_star_index = next((i for i, char in enumerate(filtered_sequences[0]) if char != '*'), len(filtered_sequences[0]))
 
-    # Slice the sequences and confidences to remove the leading * characters
     out_sequences = filtered_sequences[0][first_non_star_index:]
     out_confidences = filtered_confidences[0][first_non_star_index:]
 

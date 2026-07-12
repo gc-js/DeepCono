@@ -59,21 +59,17 @@ def grouper(iterable, n):
 tokenizer = AutoTokenizer.from_pretrained(Config['model_checkpoint'])
 
 def prepare_data():
-    # 读取数据
     df_train = pd.read_csv(Config['train_path'])
     df_unlabel = pd.read_csv(Config['unlabel_path'])
     df_val = pd.read_csv(Config['val_path'])
     
-    # 获取有标签训练数据
     labeled_sequences = df_train["train_sequences"].tolist()
     labeled_labels = df_train["train_labels"].tolist()
     labeled_structure = df_train["train_structure"].tolist()
     
-    # 获取无标签数据（没有标签）
     unlabeled_sequences = df_unlabel["unlabeled_sequences"].tolist()
     unlabeled_structure = df_unlabel["unlabeled_structure"].tolist()
 
-    # 获取验证数据（有标签）
     val_sequences = df_val["val_sequences"].tolist()
     val_labels = df_val["val_labels"].tolist()
     val_structure = df_val["val_structure"].tolist()
@@ -91,7 +87,6 @@ def prepare_data():
         'len_unlabeled': len(unlabeled_sequences)
     }
 
-# 数据批处理函数
 def collate_fn(batch):
     sequences = [item[0] for item in batch]
     pt_batch = tokenizer(sequences, padding="max_length", truncation=True, 
@@ -121,13 +116,11 @@ class MyDataset(Dataset):
         return len(self.sequences)
         
     def __getitem__(self, idx):
-        # rsa_int = [math.floor(x * 100) for x in self.RSA[idx]]
         label = self.labels[idx] if self.labels is not None else -1
         return self.sequences[idx], \
                 label, \
                 self.cysteine_position[idx],\
                 self.RSA[idx]
-                # rsa_int
 
 def create_data_loaders():
 
@@ -162,12 +155,12 @@ def create_data_loaders():
 
     train_dataset = torch.utils.data.ConcatDataset([train_labeled_dataset, train_unlabeled_dataset])
 
-    labeled_idxs = list(range(len(train_labeled_dataset)))  # 有标签数据的索引
-    unlabeled_idxs = list(range(len(train_labeled_dataset), len(train_dataset)))  # 无标签数据的索引
+    labeled_idxs = list(range(len(train_labeled_dataset)))
+    unlabeled_idxs = list(range(len(train_labeled_dataset), len(train_dataset)))
 
     sampler = TwoStreamBatchSampler(
-        primary_indices=labeled_idxs,  # 主数据流（有标签）
-        secondary_indices=unlabeled_idxs,  # 次数据流（无标签）
+        primary_indices=labeled_idxs,
+        secondary_indices=unlabeled_idxs,
         batch_size= Config['batch_size'],
         secondary_batch_size = Config['unlabeled_batch_size']
     )
