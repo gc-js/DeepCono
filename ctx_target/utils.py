@@ -61,7 +61,7 @@ def calculate_RSA(Structure_index, pdb_path, max_len, file_format="pdb", sequenc
     seq_vector_all = []
     pdb_vector_all = []
     
-    for index in Structure_index:
+    for i, index in enumerate(Structure_index):
         
         if file_format == "pdb":
             parser = PDBParser()
